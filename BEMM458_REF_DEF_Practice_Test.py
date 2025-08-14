@@ -1,11 +1,11 @@
 
 #######################################################################################################################################################
 # 
-# Name:
-# SID:
-# Exam Date:
-# Module:
-# Github link for this assignment:  
+# Name:Anwesha Dhar
+# SID:740096172
+# Exam Date:14-08-2025
+# Module:BEMM4458
+# Github link for this assignment:  https://github.com/UniversityExeterBusinessSchool/bemm458-ref-def-2425-practice-test-Anwesha-dhar.git
 #
 ########################################################################################################################################################
 # Instruction 1. Carefully read each question before attempting the solution. Complete all tasks in the script provided.
@@ -47,7 +47,11 @@ feedback_keywords = {
 }
 
 # Write your code here to populate location_list
-location_list = []
+Location_list = [
+    (customer_review.find('tutorials'), customer_review.find('tutorials') + len('tutorials')),
+    (customer_review.find('return'), customer_review.find('return') + len('return'))
+]
+print("Positions of keywords:", Location_list)
 
 ########################################################################################################################################################
 # Question 2 - Metrics Function for Business Intelligence
@@ -55,18 +59,31 @@ location_list = []
 # Gross Profit Margin, Churn Rate, Customer Lifetime Value (CLV), and Cost Per Acquisition (CPA).
 # Use the **first** and **last** digits of your student ID as sample numerical values to test your function outputs.
 
-# Insert first digit of SID here:
-# Insert last digit of SID here:
+# Insert first digit of SID here:7
+# Insert last digit of SID here:2
 
 # Write a function for Gross Profit Margin (%) = (Revenue - COGS) / Revenue * 100
+def gross_profit_margin(COGS,revenue):
+    return ((revenue-COGS) / revenue) * 100
 
 # Write a function for Churn Rate (%) = (Customers Lost / Customers at Start) * 100
+def churn_rate(customers_lost, customers_start):
+    return (customers_lost / customers_start) * 100
 
 # Write a function for Customer Lifetime Value = Average Purchase Value × Purchase Frequency × Customer Lifespan
+def customer_lifetime_value(avg_purchase_value, purchase_frequency, customer_lifespan):
+    return avg_purchase_value * purchase_frequency * customer_lifespan
+
 
 # Write a function for CPA = Marketing Cost / Number of Acquisitions
+def customer_acquisition_cost(total_marketing_cost, new_customers_acquired):
+    return total_marketing_cost / new_customers_acquired
 
 # Test your functions here
+print("Gross Profit Margin:", gross_profit_margin(7, 2))
+print("Churn Rate:", churn_rate(7, 2))
+print("Customer Lifetime Value:", customer_lifetime_value (7, 2, 6))
+print("Customer Acquisition Cost:", customer_acquisition_cost(7, 2))
 
 ########################################################################################################################################################
 # Question 3 - Linear Regression for Pricing Strategy
@@ -91,6 +108,28 @@ Price (£)    Demand (Units)
 """
 
 # Write your linear regression solution here
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+
+prices = np.array([8,10,12,14,16,18,20,22,24,26]).reshape(-1, 1)
+demand = np.array([200, 180, 160, 140, 125, 110, 90,75,65,50])
+
+# Create and train model
+model = LinearRegression()
+model.fit(prices, demand)
+
+# To predict the demand at price 25
+predicted_demand = model.predict(np.array([[25]]))
+print(f"Predicted demand at price £25: {predicted_demand[0]}")
+
+# To plot the data points and regression line
+plt.scatter(prices, demand, color='green')
+plt.plot(prices, model.predict(prices), color='pink')
+plt.xlabel("Price (£)")
+plt.ylabel("Demand (Units)")
+plt.title("Price vs Demand")
+plt.show()
 
 ########################################################################################################################################################
 # Question 4 - Debugging and Chart Creation
@@ -101,12 +140,13 @@ import random
 import matplotlib.pyplot as plt
 
 # Accept student ID as input
-sid_input = input("Enter your SID: ")
+import random
+import matplotlib.pyplot as plt
+# Accept student ID as input
+sid_input = input("740096172 ")
 sid_value = int(sid_input)
-
 # Generate 100 random values
 random_values = [random.randint(1, sid_value) for _ in range(100)]
-
 # Plotting as scatter plot
 plt.figure(figsize=(10,5))
 plt.scatter(range(100), random_values, color='green', marker='x', label='Random Values')
@@ -118,3 +158,7 @@ plt.grid(True)
 plt.show()
 
 ########################################################################################################################################################
+##I have completed and provided everything
+init Commit(
+    "I have completed and provided everything
+)
